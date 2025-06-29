@@ -287,7 +287,7 @@
     </p>
 
 
-    <footer>WHO ARE YOU?</footer>
+    <footer>THIRI HTET</footer>
 
     <!-- <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
         <div class="modal-dialog" role="document">
@@ -357,6 +357,16 @@
                         </div>
                     </div>
 
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+                    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                    crossorigin="anonymous"></script>
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                    crossorigin="anonymous"></script>
+                    <script src="js/script2.js"></script>
+
 
                     <script>
 
@@ -374,6 +384,13 @@
 
 
                         var quotationData = []
+
+                        const productPrices = {
+                            "Cleanser": 250.00,
+                            "Toner": 200.00,
+                            "Moisturizer": 350.00,
+                            "Sunscreen": 400.00
+                        };
                         
 
                         function addItem() {
@@ -401,7 +418,7 @@
                                     <tr>
                                         <td class="data">${item.quantity}</td>
                                         <td class="data">
-                                            <button class="btn btn-secondary btn-sm px-2 py-0" style="font-weight:bold;" onclick="deleteItem(${index})" title="Delete">
+                                            <button class="btn btn-danger btn-sm px-2 py-0" style="font-weight:bold;" onclick="deleteItem(${index})" title="Delete">
                                                 &times;
                                             </button>
                                             ${item.description}
@@ -437,6 +454,17 @@
                                     // $('#quotationDate').html(d.toDateString())
                                     renderTable()
                                 })
+
+
+                                $('#newItemDescription').on('change', function() {
+                                    const selected = $(this).val();
+                                    if (productPrices[selected] !== undefined) {
+                                        $('#newItemPPU').val(productPrices[selected]);
+                                    } else {
+                                        $('#newItemPPU').val('');
+                                    }
+                                });
+
                         })
 
 
@@ -457,15 +485,7 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <script src="js/script2.js"></script>
+    
 
 
 
